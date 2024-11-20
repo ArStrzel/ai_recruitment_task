@@ -31,10 +31,12 @@ async function main() {
     "Structure the attached content so that it can be nested inside the already existing body tag of the html document. Define paragraphs, title and subheadings. " +
     "Place several img tags where you think the image will fit, a maximum of one image each inside a paragraph. Use the src attribute with the value image_placeholder.jpg. " +
     'Use the alt attribute, the value of which will be used as a prompt to AI-chat in the form of a question asking like "generate image...", to generate a matching image. ' +
-    "Using the figcaption html tag, place a matching caption under each image. Each pair: image and caption, must be placed inside the parent figure html block. ";
+    "Using the figcaption html tag, place a matching caption under each image. Each pair: image and caption, must be placed inside the parent figure html block. " +
+    'Make every single word "AI" bold using b tag.';
 
   const secondPrompt =
-    'Generate a simple html template leaving body block of the code empty. Template is for the website with content in polish language. Give the template the title "Oxido recruitment task". Let the template refer to the stylesheet at "style.css"';
+    "Generate a simple html template leaving body block of the code empty. Template is for the website with content in polish language. " +
+    'Give the template the title "Oxido recruitment task". Use the word "AI" as a keyword in the metadata section. Let the template refer to the stylesheet at "style.css"';
 
   const sourceFileUrl =
     "https://cdn.oxido.pl/hr/Zadanie%20dla%20JJunior%20AI%20Developera%20-%20tresc%20artykulu.txt";

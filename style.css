@@ -54,3 +54,8 @@ figcaption {
   color: #777;
   font-style: italic;
 }
+
+b {
+  font-style: italic;
+  color: #227;
+}
