@@ -12,7 +12,7 @@ import "dotenv/config";
 // na wypadek gdyby ktoś przegapił dołączenie pliku `.env` z własnym kluczem
 if (!process.env.OPENAI_API_KEY) {
   console.error(
-    "API key is missing. Please set OPENAI_API_KEY in your `.env` file."
+    "API key is missing. Please set OPENAI_API_KEY in your `.env` file and run app again."
   );
   process.exit(1);
 }
@@ -21,7 +21,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-//
+// funkcja główna aplikacji
 async function main() {
   // kilka stałych w jednym miejscu, prompty, adresy
   const systemRole =
@@ -32,7 +32,7 @@ async function main() {
     "Place several img tags where you think the image will fit, a maximum of one image each inside a paragraph. Use the src attribute with the value image_placeholder.jpg. " +
     'Use the alt attribute, the value of which will be used as a prompt to AI-chat in the form of a question asking like "generate image...", to generate a matching image. ' +
     "Using the figcaption html tag, place a matching caption under each image. Each pair: image and caption, must be placed inside the parent figure html block. " +
-    'Make every single word "AI" bold using b tag.';
+    'Make every single word "AI" bold using b tag. if the text will have some contextual commentary that does not fit in with the rest, mark it in italics. ';
 
   const secondPrompt =
     "Generate a simple html template leaving body block of the code empty. Template is for the website with content in polish language. " +
@@ -59,7 +59,7 @@ async function main() {
       sendPrompt(systemRole, secondPrompt),
     ]);
     if (!htmlArticle || !htmlTemplate) {
-      throw new Error("Unexpected response from api openai.");
+      return;
     }
 
     // zapis otrzymanych odpowiedzi w formie plików html

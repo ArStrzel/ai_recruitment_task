@@ -59,3 +59,7 @@ b {
   font-style: italic;
   color: #227;
 }
+
+i:before {
+  content: ">> ";
+}
